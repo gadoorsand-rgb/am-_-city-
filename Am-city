@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AM CITY</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#a8d7e9;font-family:Arial;color:white}
+header{padding:15px;background:#111d2b;text-align:center}
+h1{margin:0;color:#ffd34f;letter-spacing:3px}
+p{margin:7px 0 0;font-size:13px}
+#scene{height:76vh;min-height:430px;position:relative;overflow:hidden;
+background:linear-gradient(#84c8e8 0%,#d3e9dc 55%,#6caa68 55%)}
+.sun{position:absolute;top:25px;left:25px;width:55px;height:55px;
+background:#ffe79a;border-radius:50%;box-shadow:0 0 35px #fff1a6}
+.road{position:absolute;width:150%;height:115px;background:#424b55;
+top:58%;left:-25%;transform:rotate(-13deg);border-top:5px solid #c5c8c7;
+border-bottom:5px solid #c5c8c7}
+.road:after{content:"";position:absolute;top:50%;width:100%;
+border-top:3px dashed #f8e9a6}
+.building{position:absolute;width:85px;height:100px;background:#f0dfbf;
+border:3px solid #b7a78d;box-shadow:9px 9px 0 #9a886e}
+.building:before{content:"";position:absolute;top:-22px;left:-3px;
+width:85px;height:22px;background:#bd6550;transform:skewY(-12deg)}
+.win{position:absolute;width:17px;height:23px;background:#7bc9e4;
+border:3px solid #fff4d8}
+.b1{top:18%;left:12%}.b2{top:23%;right:12%;height:120px}
+.b3{top:43%;left:8%;width:70px;height:70px;background:#e5d2a8}
+.b4{top:13%;right:39%;width:100px;height:90px;background:#eee6d4}
+.tree{position:absolute;font-size:37px;filter:drop-shadow(3px 4px 1px #456b43)}
+.t1{top:48%;left:30%}.t2{top:28%;right:29%}
+.t3{top:70%;left:12%}.t4{top:16%;left:42%}
+.car{position:absolute;font-size:34px;top:59%;left:43%;
+transform:rotate(-13deg);filter:drop-shadow(2px 4px 2px #222)}
+#controls{display:flex;justify-content:center;gap:12px;padding:14px;background:#111d2b}
+button{border:0;border-radius:10px;padding:12px 17px;background:#ffd34f;
+font-weight:bold;font-size:15px;color:#17212c}
+#msg{text-align:center;background:#111d2b;padding:0 8px 15px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>AM CITY</h1>
+<p>مدينة الحياة الواقعية 🇱🇾</p>
+</header>
+<div id="scene">
+<div class="sun"></div>
+<div class="road"></div>
+<div class="building b1"><i class="win" style="top:20px;left:10px"></i><i class="win" style="top:20px;right:10px"></i><i class="win" style="top:58px;left:10px"></i></div>
+<div class="building b2"><i class="win" style="top:25px;left:10px"></i><i class="win" style="top:25px;right:10px"></i><i class="win" style="top:65px;left:30px"></i></div>
+<div class="building b3"></div>
+<div class="building b4"><i class="win" style="top:25px;left:12px"></i><i class="win" style="top:25px;right:12px"></i></div>
+<div class="tree t1">🌴</div><div class="tree t2">🌴</div>
+<div class="tree t3">🌳</div><div class="tree t4">🌴</div>
+<div class="car" id="car">🚗</div>
+</div>
+<div id="controls">
+<button onclick="move(-1)">⬅️ يسار</button>
+<button onclick="move(1)">يمين ➡️</button>
+<button onclick="horn()">📣 بوق</button>
+</div>
+<div id="msg">أهلًا بيك في AM CITY — تجربة المدينة الأولى</div>
+<script>
+let pos=43;
+function move(d){
+pos=Math.max(5,Math.min(85,pos+d*5));
+document.getElementById('car').style.left=pos+'%';
+document.getElementById('msg').textContent='سيارتك تتحرك في شوارع AM CITY 🚗';
+}
+function horn(){
+document.getElementById('msg').textContent='بيب بيب! مرحبًا بيك في AM CITY 🔊';
+}
+</script>
+</body>
+</html>
